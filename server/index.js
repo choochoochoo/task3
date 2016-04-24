@@ -32,8 +32,8 @@ app.put('/api/v1/students/:id', (req, res, next) => {
     students.update(student).then((result) => res.json(result));
 });
 
-app.listen(8080, () => {
-    console.log('Server listening on port 8080!');
+app.listen(3000, () => {
+    console.log('Server listening on port 3000!');
 });
 
 function parseStudentFromRequest(req, res) {

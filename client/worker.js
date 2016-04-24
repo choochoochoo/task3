@@ -1,9 +1,10 @@
-var CACHE_NAME = 'shri-2016-task3-1';
+var CACHE_NAME = 'shri-2016-task3-2';
+var CACHE_NAME_DATA = 'shri-2016-task3-2-data'
 
 var urlsToCache = [
-  '/',
-  '/index.css',
-  '/index.js'
+    '/',
+    'css/index.css',
+    'js/index.js'
 ];
 
 self.addEventListener('install', (event) => {
@@ -20,33 +21,37 @@ self.addEventListener('fetch', function(event) {
 
     if (/^\/api\/v1/.test(requestURL.pathname)
         && (event.request.method !== 'GET' && event.request.method !== 'HEAD')) {
+
+        caches.delete(CACHE_NAME_DATA);
         return event.respondWith(fetch(event.request));
+
+
     }
 
     if (/^\/api\/v1/.test(requestURL.pathname)) {
         return event.respondWith(
-            Promise.race([
-                fetchAndPutToCache(event.request),
-                getFromCache(event.request)
-            ])
+            getFromCache(event.request)
+                .catch(() => fetchAndPutToCache(event.request))
         );
     }
 
     return event.respondWith(
-        getFromCache(event.request).catch(fetchAndPutToCache);
+        getFromCache(event.request).catch(() => fetchAndPutToCache(event.request))
     );
 });
 
 function fetchAndPutToCache(request) {
     return fetch(request).then((response) => {
-        const responseToCache = response.clone();
-        return caches.open(CACHE_NAME)
-            .then((cache) => {
-                cache.put(request, responseToCache);
-            })
-            .then(() => response);
-    })
-    .catch(() => caches.match(request));
+
+            const responseToCache = response.clone();
+            return caches.open(CACHE_NAME_DATA)
+                .then((cache) => {
+
+                    cache.put(request, responseToCache);
+                })
+                .then(() => response);
+        })
+        .catch(() => caches.match(request));
 }
 
 function getFromCache(request) {

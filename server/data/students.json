@@ -1,8 +1,38 @@
 [
     {
-        "name": "Иван Иванов",
+        "name": "Иван Иванов1",
         "picSrc": "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
         "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         "id": 1
+    },
+    {
+        "name": "1",
+        "picSrc": "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
+        "bio": "1",
+        "id": 2
+    },
+    {
+        "name": "2",
+        "picSrc": "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
+        "bio": "2",
+        "id": 3
+    },
+    {
+        "name": "3",
+        "picSrc": "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
+        "bio": "3",
+        "id": 4
+    },
+    {
+        "name": "4",
+        "picSrc": "http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
+        "bio": "4",
+        "id": 5
+    },
+    {
+        "name": "5",
+        "picSrc": "https://a499af057572c393815e-e011ef914a29f21f9a22bf73f79926ab.ssl.cf1.rackcdn.com/T015030803_Avatar.jpg",
+        "bio": "5",
+        "id": 6
     }
 ]
